@@ -2,6 +2,7 @@
 A simple android note app.
 
 Text size should be "Normal"
+
 Display size should be "Default"
 
 account for test:
