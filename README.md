@@ -1,6 +1,9 @@
 # Kyffee
 A simple android note app.
 
+Text size should be "Normal"
+Display size should be "Default"
+
 account for test:
 * username: aaa, pwd: 123
 * username: Lebron James, pwd: 23
