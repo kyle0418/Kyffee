@@ -5,6 +5,8 @@ Text size should be "Normal"
 
 Display size should be "Default"
 
+Support Dark mode
+
 account for test:
 * username: aaa, pwd: 123
 * username: Lebron James, pwd: 23
