@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoffeeApp.Views.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding 
+                                    Dark={StaticResource WindowBackgroundColorDarkGray}, 
+                                    Light={StaticResource WindowBackgroundColorLight}}">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,3*"
+              ColumnDefinitions="*">
+
+            <Label Text="Kyffee" Grid.Row="0"
+                   TextColor="DeepSkyBlue"
+                   FontFamily="LF"
+                   FontSize="70"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="End"
+                   VerticalTextAlignment="End"/>
+
+            <StackLayout Padding="40" Grid.Row="1"
+                     VerticalOptions="Center"
+                     HorizontalOptions="FillAndExpand">
+
+                <Label Text="Username:" 
+                   Style="{StaticResource InputLabel}"/>
+                <Entry x:Name="username"
+                   Style="{StaticResource CustomEntry}"
+                   Placeholder="Username"
+                   TextChanged="username_TextChanged"/>
+                <Label Text="Password:" 
+                   Style="{StaticResource InputLabel}"/>
+                <Entry x:Name="password" 
+                   Style="{StaticResource CustomEntry}"
+                   IsPassword="True" 
+                   Placeholder="Password"/>
+                <Button Text="Login" 
+                    Style="{StaticResource RoundButton}"
+                    BackgroundColor="{AppThemeBinding 
+                                            Dark={StaticResource ButtonBackgroundDark},
+                                            Light=#f2f2f2}"
+                    FontSize="Medium"
+                    FontFamily="CB"
+                    Clicked="Button_Clicked"/>
+                <Label Text="Register" 
+                   HorizontalOptions="Center" 
+                   TextColor="Red"
+                   FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

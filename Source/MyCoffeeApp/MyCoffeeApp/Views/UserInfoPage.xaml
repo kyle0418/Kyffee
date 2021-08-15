@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoffeeApp.Views.UserInfoPage"
+             BackgroundColor="{AppThemeBinding 
+                                    Dark={StaticResource WindowBackgroundColorDarkGray}, 
+                                    Light={StaticResource WindowBackgroundColorLight}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowDefinitions="Auto,*"
+                  ColumnDefinitions="*">
+                <StackLayout Padding="20"
+                             Margin="10"
+                             BackgroundColor="{AppThemeBinding 
+                                                    Dark=Gray, 
+                                                    Light=WhiteSmoke}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Username: "
+                       Style="{StaticResource InputLabel}"/>
+                        <Label x:Name="LabelUsername"
+                       Style="{StaticResource ShowLabel}"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Gender: "
+                       Style="{StaticResource InputLabel}"/>
+                        <Label x:Name="LabelGender"
+                       Style="{StaticResource ShowLabel}"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Grid.Row="1"
+                             Padding="20,0,10,0"
+                             Margin="10"
+                             VerticalOptions="FillAndExpand"                            
+                             BackgroundColor="{AppThemeBinding 
+                                                    Dark=Gray, 
+                                                    Light=WhiteSmoke}">
+                    <Label Text="Notification" 
+                           Style="{StaticResource ShowLabel}"
+                           FontSize="Large"
+                           HorizontalOptions="Start"/>
+                    <Switch  x:Name="notificationSwitch"
+                             IsToggled="False"
+                             OnColor="LightGreen"
+                             HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Grid>
+            <Button x:Name="ButtonLogout"
+                    Style="{StaticResource CustomButton}"
+                    TextColor="Red"
+                    VerticalOptions="EndAndExpand"
+                    Text="Log out"
+                    Clicked="ButtonLogout_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

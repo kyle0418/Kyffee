@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoffeeApp.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="RefreshColor">Orange</Color>
+
+            <Color x:Key="WindowBackgroundColorLight">White</Color>
+            <Color x:Key="WindowBackgroundColorDark">Black</Color>
+            <Color x:Key="WindowBackgroundColorDarkGray">#262626</Color>
+
+            <Color x:Key="BackgroundColorDark">#262626</Color>
+            <Color x:Key="PrimaryBackgroundDark">Gray</Color>
+            <Color x:Key="PrimaryTextDark">#ffffff</Color>
+            <Color x:Key="PrimaryTextLight">#ffffff</Color>
+
+            <Color x:Key="TextColorLight">Black</Color>
+            <Color x:Key="TextColorDark">White</Color>
+
+            <Color x:Key="CardBackgroundLight">White</Color>
+            <Color x:Key="CardBackgroundDark">Gray</Color>
+
+            <Color x:Key="ButtonBackgroundLight">Gray</Color>
+            <Color x:Key="ButtonBackgroundDark">Black</Color>
+
+            <Color x:Key="HeaderBarBackgroundColorLight">#2196F3</Color>
+            <Color x:Key="HeaderBarBackgroundColorDark">#111111</Color>
+            <Color x:Key="HeaderBarTextColorLight">#FFFFFF</Color>
+            <Color x:Key="HeaderBarTextColorDark">#FFFFFF</Color>
+
+            <Style x:Key="RoundButton" TargetType="Button">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding 
+                                                                Dark={StaticResource ButtonBackgroundDark},
+                                                                Light={StaticResource ButtonBackgroundLight}}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding 
+                                                                Dark={StaticResource TextColorDark},
+                                                                Light={StaticResource TextColorLight}}"/>
+            </Style>
+            <Style x:Key="CustomButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding 
+                                                                Dark={StaticResource ButtonBackgroundDark},
+                                                                Light=LightGray}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding 
+                                                                Dark={StaticResource TextColorDark},
+                                                                Light={StaticResource TextColorLight}}"/>
+            </Style>
+            <Style x:Key="CustomEntry" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding 
+                                                                Dark=Gray,
+                                                                Light=Gray}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding 
+                                                                Dark=White,
+                                                                Light=Black}"/>
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+            </Style>
+            <Style x:Key="CustomFrame" TargetType="Frame">
+                <Setter Property="HeightRequest" Value="70"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding 
+                                                                Dark={StaticResource CardBackgroundDark},
+                                                                Light={StaticResource CardBackgroundLight}}"/>
+            </Style>
+            <Style x:Key="InputLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="CB"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding
+                                                        Dark={StaticResource TextColorDark},
+                                                        Light={StaticResource TextColorLight}}"/>
+            </Style>
+            <Style x:Key="ShowLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding
+                                                        Dark={StaticResource TextColorDark},
+                                                        Light={StaticResource TextColorLight}}"/>
+            </Style>
+                   
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

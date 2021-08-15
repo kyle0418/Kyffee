@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30802.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.Android", "MyCoffeeApp\MyCoffeeApp.Android\MyCoffeeApp.Android.csproj", "{99828332-15BD-43C7-AE3B-9A9522030179}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoffeeApp", "MyCoffeeApp\MyCoffeeApp\MyCoffeeApp.csproj", "{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99828332-15BD-43C7-AE3B-9A9522030179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99828332-15BD-43C7-AE3B-9A9522030179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99828332-15BD-43C7-AE3B-9A9522030179}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{99828332-15BD-43C7-AE3B-9A9522030179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99828332-15BD-43C7-AE3B-9A9522030179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99828332-15BD-43C7-AE3B-9A9522030179}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B35D20E-02F4-4FF6-B3C0-94CF22DB739F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31C9CFEF-F3FC-40A6-9B3C-B0C11BD35F3D}
+	EndGlobalSection
+EndGlobal

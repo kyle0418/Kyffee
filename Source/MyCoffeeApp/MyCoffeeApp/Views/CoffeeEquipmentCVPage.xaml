@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
+             x:Class="MyCoffeeApp.Views.CoffeeEquipmentCVPage">
+    
+    <ContentPage.BindingContext>
+        <viewmodels:CoffeeEquipmentViewModel />
+    </ContentPage.BindingContext>
+    
+    <RefreshView
+        Command="{Binding RefreshCommand}"
+        IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+
+        <CollectionView
+            BackgroundColor="Transparent"
+            IsGrouped="True"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemsLayout="VerticalList"
+            ItemsSource="{Binding CoffeeGroups}"
+            RemainingItemsThreshold="1"
+            RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
+            SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
+            SelectionMode="Single">
+            <CollectionView.EmptyView>
+                <StackLayout Padding="12">
+                    <Label HorizontalOptions="Center" Text="No coffee" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="12">
+                        <Label FontSize="Medium" Text="{Binding Key}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    BackgroundColor="Orange"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CoffeeEquipmentViewModel}}, Path=FavoriteCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Text="Favorite" />
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    IsDestructive="True"
+                                    Text="Delete" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Image}" WidthRequest="66" />
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label
+                                            FontSize="Large"
+                                            Text="{Binding Name}"
+                                            VerticalOptions="Center" />
+                                        <Label
+                                            FontSize="Large"
+                                            Text="{Binding Roaster}"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Header>
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="Coffee of the world"
+                       HorizontalOptions="Center"/>
+                </StackLayout>
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button
+                        Command="{Binding LoadMoreCommand}"
+                        
+                        Text="Load More" />
+                    <Button
+                        Command="{Binding ClearCommand}"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Clear" />
+                </StackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

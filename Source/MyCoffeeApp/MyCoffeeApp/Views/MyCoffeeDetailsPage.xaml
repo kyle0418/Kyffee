@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoffeeApp.Views.MyCoffeeDetailsPage"
+             BackgroundColor="{AppThemeBinding 
+                                    Dark={StaticResource WindowBackgroundColorDark}, 
+                                    Light={StaticResource WindowBackgroundColorLight}}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="saveButton"
+                     Text=""
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Title:" 
+                   Style="{StaticResource InputLabel}"
+                   HeightRequest="40"/>
+            <Entry x:Name="titleEntry" 
+                   Style="{StaticResource CustomEntry}"
+                   HeightRequest="45"
+                   Text="{Binding Name}"
+                   FontSize="Medium"
+                   TextChanged="TextChanged">
+            </Entry>
+            <Label Text="Content:" 
+                   Style="{StaticResource InputLabel}"
+                   HeightRequest="40"/>
+            <Editor x:Name="contentEditor" 
+                    VerticalOptions="FillAndExpand"
+                    Text="{Binding Roaster}"
+                    FontSize="Medium"
+                    TextChanged="TextChanged"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

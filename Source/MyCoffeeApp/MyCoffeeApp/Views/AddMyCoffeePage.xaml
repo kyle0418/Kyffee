@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoffeeApp.Views.AddMyCoffeePage"
+             xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels" 
+             x:DataType="viewmodels:AddMyCoffeeViewModel"
+             Shell.PresentationMode="Modal">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AddMyCoffeeViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Title:"
+                   Style="{StaticResource InputLabel}"/>
+            <Entry Text="{Binding Name, Mode=TwoWay}"
+                   Style="{StaticResource CustomEntry}"/>
+            <Label Text="Content:"
+                   Style="{StaticResource InputLabel}"/>
+            <Editor Text="{Binding Roaster, Mode=TwoWay}"
+                    Style="{StaticResource CustomEntry}"
+                    VerticalOptions="FillAndExpand"/>
+            <Label Text="Type:"
+                   Style="{StaticResource InputLabel}"/>
+            <Picker x:Name="typePicker"
+                    Title="Select a type"
+                    ItemsSource="{Binding Types}"
+                    SelectedIndex="{Binding SelectedTypeIndex, Mode=TwoWay}">
+            </Picker>
+            <Button Text="Save" 
+                    Style="{StaticResource CustomButton}"
+                    VerticalOptions="EndAndExpand" 
+                    HorizontalOptions="Center"
+                    Command="{Binding SaveCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

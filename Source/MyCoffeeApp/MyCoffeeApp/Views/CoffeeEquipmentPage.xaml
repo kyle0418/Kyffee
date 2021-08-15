@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:models="clr-namespace:MyCoffeeApp.Models" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
+             x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
+             x:DataType="viewmodels:CoffeeEquipmentViewModel"
+             x:Name="CoffeePage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:CoffeeEquipmentViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="❔"
+                     Clicked="Search_Clicked"/>
+        <ToolbarItem Text="✚"
+                     Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView BackgroundColor="{AppThemeBinding 
+                                    Dark={StaticResource WindowBackgroundColorDark}, 
+                                    Light={StaticResource WindowBackgroundColorLight}}"
+              x:Name="mainListView"
+              CachingStrategy="RecycleElement"
+              HasUnevenRows="True"
+              SelectionMode="Single"
+              ItemsSource="{Binding Coffee}"
+              SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
+              IsGroupingEnabled="False"
+              GroupDisplayBinding="{Binding Key}"
+              SeparatorVisibility="None"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              RefreshCommand="{Binding RefreshCommand}"
+              RefreshControlColor="{StaticResource RefreshColor}">
+        <ListView.Behaviors>
+            <xct:EventToCommandBehavior
+                EventName="ItemSelected"
+                Command="{Binding SelectedCommand}"
+                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}" />
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="models:Coffee">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete"
+                                  Command="{Binding Source={x:Reference CoffeePage},
+                                                    Path=BindingContext.RemoveCommand}"
+                                  CommandParameter="{Binding .}"/>
+                    </ViewCell.ContextActions>
+                    <Grid Padding="10">
+                        <Frame Style="{StaticResource CustomFrame}">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Image}"
+                                       WidthRequest="66"
+                                       HeightRequest="80"
+                                       Aspect="AspectFill"/>
+                                <StackLayout VerticalOptions="Center" Padding="20,0,0,0" Spacing="15">
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource ShowLabel}"
+                                           LineBreakMode="NoWrap"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding Roaster}"
+                                           LineBreakMode="NoWrap"
+                                           Style="{StaticResource ShowLabel}"
+                                           VerticalOptions="Center"
+                                           FontSize="Medium"/>
+                                </StackLayout>
+                                <!--<Button Text="Favorite"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CoffeeEquipmentViewModel}},
+                                                          Path=FavoriteCommand}"
+                                        CommandParameter="{Binding .}"/>-->
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Header>
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Kyffee: just enjoy"
+                       TextColor="{AppThemeBinding
+                                        Dark=Gray, 
+                                        Light=Black}"
+                       FontSize="Medium"
+                       FontFamily="LF"
+                       HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </ListView.Header>
+        <!--<ListView.Footer>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Button Text="Load More"
+                        Command="{Binding LoadMoreCommand}"/>
+            </StackLayout>
+        </ListView.Footer>-->
+    </ListView>
+</ContentPage>
